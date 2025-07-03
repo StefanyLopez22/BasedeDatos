@@ -3,17 +3,17 @@
 | Campo           | Tipo de Dato | Tamaño | PK | FK | Nulo | Único | Restricciones / CHECK         | Referencia a | Descripción                    |
 | --------------- | ------------ | ------ | -- | -- | ---- | ----- | ----------------------------- | ------------ | ------------------------------ |
 | NumDoctor       | INT          | -      | ✅  | ❌  | ❌    | ✅     | > 0                           | -            | Identificador único del doctor |
-| Nombre          | VARCHAR      | 100    | ❌  | ❌  | ❌    | ❌     | Solo letras A-Z, longitud ≥ 3 | -            | Nombre del doctor              |
-| ApellidoPaterno | VARCHAR      | 60     | ❌  | ❌  | ❌    | ❌     | Solo letras A-Z, longitud ≥ 3 | -            | Apellido paterno del doctor    |
-| ApellidoMaterno | VARCHAR      | 60     | ❌  | ❌  | ❌    | ❌     | Solo letras A-Z, longitud ≥ 3 | -            |                                |
+| Nombre          | NVARCHAR      | 50    | ❌  | ❌  | ❌    | ❌     | Solo letras A-Z, longitud ≥ 3 | -            | Nombre del doctor              |
+| ApellidoPaterno | NVARCHAR      | 60     | ❌  | ❌  | ❌    | ❌     | Solo letras A-Z, longitud ≥ 3 | -            | Apellido paterno del doctor    |
+| ApellidoMaterno | NVARCHAR      | 60     | ❌  | ❌  | ❌    | ❌     | Solo letras A-Z, longitud ≥ 3 | -            |                                |
 
  **Tabla pacientes**
 | Campo           | Tipo de Dato | Tamaño | PK | FK | Nulo | Único | Restricciones / CHECK         | Referencia a | Descripción                      |
 | --------------- | ------------ | ------ | -- | -- | ---- | ----- | ----------------------------- | ------------ | -------------------------------- |
 | NumPaciente     | INT          | -      | ✅  | ❌  | ❌    | ✅     | > 0                           | -            | Identificador único del paciente |
-| Nombre          | VARCHAR      | 50     | ❌  | ❌  | ❌    | ❌     | Solo letras A-Z, longitud ≥ 3 | -            | Nombre del paciente              |
-| ApellidoPaterno | VARCHAR      | 60     | ❌  | ❌  | ❌    | ❌     | Solo letras A-Z, longitud ≥ 3 | -            | Apellido paterno del paciente    |
-| ApellidoMaterno | VARCHAR      | 60     | ❌  | ❌  | ❌    | ❌     | Solo letras A-Z, longitud ≥ 3 | -            | Apellido materno del paciente    |
+| Nombre          | NVARCHAR      | 50     | ❌  | ❌  | ❌    | ❌     | Solo letras A-Z, longitud ≥ 3 | -            | Nombre del paciente              |
+| ApellidoPaterno | NVARCHAR      | 60     | ❌  | ❌  | ❌    | ❌     | Solo letras A-Z, longitud ≥ 3 | -            | Apellido paterno del paciente    |
+| ApellidoMaterno | NVARCHAR      | 60     | ❌  | ❌  | ❌    | ❌     | Solo letras A-Z, longitud ≥ 3 | -            | Apellido materno del paciente    |
 
  **Tabla atencion**
 | Campo       | Tipo de Dato | Tamaño | PK | FK | Nulo | Único | Restricciones / CHECK                | Referencia a           | Descripción                 |

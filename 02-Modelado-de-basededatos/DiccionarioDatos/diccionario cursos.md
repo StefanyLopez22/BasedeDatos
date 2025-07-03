@@ -4,10 +4,10 @@
 | --------------- | ------------ | ------ | -- | -- | ---- | ----- | ------------------------------ | ------------------ | ----------------------------------- |
 | NumEstudiante   | INT          | -      | ✅  | ❌  | ❌    | ✅     | > 0                            | -                  | Identificador único del estudiante  |
 | Matricula       | VARCHAR      | 15     | ❌  | ❌  | ❌    | ✅     | Letras y números, longitud ≥ 3 | -                  | Matrícula del estudiante            |
-| Nombre          | VARCHAR      | 100    | ❌  | ❌  | ❌    | ❌     | Solo letras A-Z, longitud ≥ 3  | -                  | Nombre(s) del estudiante            |
-| ApellidoPaterno | VARCHAR      | 100    | ❌  | ❌  | ❌    | ❌     | Solo letras A-Z, longitud ≥ 3  | -                  | Apellido paterno del estudiante     |
-| ApellidoMaterno | VARCHAR      | 100    | ❌  | ❌  | ❌    | ❌     | Solo letras A-Z, longitud ≥ 3  | -                  | Apellido materno del estudiante     |
-| IdCiudad        | INT          | -      | ❌  | ✅  | ❌    | ❌     | > 0                            | CIUDADES(IdCiudad) | Ciudad de residencia del estudiante |
+| Nombre          | NVARCHAR      | 50    | ❌  | ❌  | ❌    | ❌     | Solo letras A-Z, longitud ≥ 3  | -                  | Nombre(s) del estudiante            |
+| ApellidoPaterno | NVARCHAR      | 50    | ❌  | ❌  | ❌    | ❌     | Solo letras A-Z, longitud ≥ 3  | -                  | Apellido paterno del estudiante     |
+| ApellidoMaterno | NVARCHAR      | 50    | ❌  | ❌  | ❌    | ❌     | Solo letras A-Z, longitud ≥ 3  | -                  | Apellido materno del estudiante     |
+
 
  **Tabla inscripcion**
 | Campo            | Tipo de Dato | Tamaño | PK | FK | Nulo | Único | Restricciones / CHECK                | Referencia a               | Descripción                        |
