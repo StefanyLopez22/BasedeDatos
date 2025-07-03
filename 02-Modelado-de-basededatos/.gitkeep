@@ -1,0 +1,19 @@
+Propuesta de Caso Práctico para la creación de una Base de Datos 
+Asignatura: Base de Datos
+Elaborado por: Ausencio Lopez Stefany
+Empresa: Almacenadora de Deposito moderno S.A. de C.V.
+
+Descripción del Caso Practico 
+Nombre del Proyecto: 
+Sistema de Gestión de Contratos y Empleados en un Almacén 
+Objetivo General:
+Diseñar y desarrollar una base de datos que permita la gestión eficiente de expedientes del personal, creación y renovación de contratos de trabajo y la optimización de la vinculación de datos entre Excel y Word en un entorno de recursos humanos (RH). 
+Descripción del Problema o Necesidad:
+Actualmente la empresa almacena los datos de los empleados en hojas de cálculo de Excel y utiliza documentos de Word como las platillas de los contratos. El proceso de integración entre ambos formatos para la creación del contrato de forma manual. Se necesita una solución más eficiente que centre la información y automatice el trabajo para evitar duplicaciones, errores de formato y pérdida de tiempo.
+ Restricciones 
+El sistema debe permitir registrar los datos personales y laborales de los empleados, incluyendo nombre, CURP, correo, puesto y departamento. También debe permitir consultar, modificar o eliminar esta información según se requiera. Se podrán registrar contratos laborales con datos como tipo de contrato, salario, fechas de inicio y término, así como su estado (activo, vencido o renovado). Los contratos deben poder renovarse sin duplicar la información del empleado.
+Cada contrato estará asociado a una plantilla de documento (Word o PDF), la cual permitirá generar automáticamente el archivo del contrato. El sistema también debe permitir crear, editar o eliminar puestos y departamentos. Además, debe ser fácil de usar para el personal de recursos humanos, proteger la información mediante autenticación y encriptación, ser compatible con archivos Excel y Word, contar con documentación técnica para mantenimiento, y funcionar en computadoras con sistema operativo Windows y navegador web estándar.
+En cuanto al modelo de datos, se establecen claves primarias únicas para cada entidad: ID_Empleado, ID_Contrato, ID_Departamento, ID_Puesto y ID_Plantilla. Estas garantizan que cada registro sea único. Se utilizan claves foráneas para mantener las relaciones entre las entidades, como vincular contratos a empleados, empleados a departamentos y puestos, y contratos a plantillas de documentos.
+Existen restricciones de integridad referencial que impiden, por ejemplo, crear un contrato sin un empleado válido o asignar un puesto inexistente. La cardinalidad de las relaciones también está definida: un empleado puede tener varios contratos, pero cada contrato solo pertenece a un empleado; un empleado pertenece a un solo departamento y ocupa un solo puesto; y cada contrato usa una plantilla de documento.
+Se aplican además restricciones de dominio para asegurar la validez de ciertos datos. Por ejemplo, el salario y nivel salarial deben ser mayores que cero; la fecha de término de un contrato debe ser posterior a la de inicio; y los formatos de archivo permitidos para plantillas deben ser .docx o .pdf. Finalmente, se sugiere establecer unicidad adicional en campos como el RFC del empleado para evitar duplicidad de datos personales.
+
