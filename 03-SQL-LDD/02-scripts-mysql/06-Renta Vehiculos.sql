@@ -1,0 +1,46 @@
+
+CREATE DATABASE RentaVehiculos;
+USE RentaVehiculos;
+
+-- Crear tabla SUCURSAL
+CREATE TABLE SUCURSAL (
+    NumSucursal INT PRIMARY KEY,
+    Nombre VARCHAR(50) CHARACTER SET utf8mb4 NOT NULL,
+    Ubicacion VARCHAR(50) CHARACTER SET utf8mb4 NOT NULL
+);
+
+-- Crear tabla VEHICULO
+CREATE TABLE VEHICULO (
+    NumVehiculo INT PRIMARY KEY,
+    Marca VARCHAR(40) CHARACTER SET utf8mb4 NOT NULL,
+    Ano YEAR NOT NULL,
+    Modelo VARCHAR(40) CHARACTER SET utf8mb4 NOT NULL,
+    Placa VARCHAR(10) CHARACTER SET utf8mb4 NOT NULL,
+    NumSucursal INT NOT NULL,
+    FOREIGN KEY (NumSucursal) REFERENCES SUCURSAL(NumSucursal)
+);
+
+-- Crear tabla CLIENTES
+CREATE TABLE CLIENTES (
+    NumCli INT PRIMARY KEY,
+    Nombre VARCHAR(50) CHARACTER SET utf8mb4 NOT NULL,
+    ApellidoPaterno VARCHAR(50) CHARACTER SET utf8mb4 NOT NULL,
+    ApellidoMaterno VARCHAR(40) CHARACTER SET utf8mb4 NOT NULL,
+    CURP CHAR(50) CHARACTER SET utf8mb4 NOT NULL,
+    Telefono VARCHAR(40) CHARACTER SET utf8mb4 NOT NULL,
+    Calle VARCHAR(50) CHARACTER SET utf8mb4 NOT NULL,
+    Num VARCHAR(20) CHARACTER SET utf8mb4 NOT NULL,
+    Ciudad VARCHAR(50) CHARACTER SET utf8mb4 NOT NULL
+);
+
+-- Crear tabla RENTA
+CREATE TABLE RENTA (
+    NumCliente INT NOT NULL,
+    NumVehiculo INT NOT NULL,
+    NumDiasPrestados INT NOT NULL,
+    FechaInicio DATE NOT NULL,
+    FechaTermino DATE NOT NULL,
+    PRIMARY KEY (NumCliente, NumVehiculo, FechaInicio),
+    FOREIGN KEY (NumCliente) REFERENCES CLIENTES(NumCli),
+    FOREIGN KEY (NumVehiculo) REFERENCES VEHICULO(NumVehiculo)
+);
