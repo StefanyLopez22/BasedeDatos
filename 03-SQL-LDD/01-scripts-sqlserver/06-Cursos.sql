@@ -1,12 +1,8 @@
 
 CREATE DATABASE Cursos;
 GO
-
-
 USE Cursos;
 GO
-
-
 CREATE TABLE Estudiante (
     numestudiante INT NOT NULL PRIMARY KEY,
     matricula INT NOT NULL,
@@ -15,7 +11,6 @@ CREATE TABLE Estudiante (
     apellidomaterno NVARCHAR(50) NOT NULL
 );
 GO
-
 CREATE TABLE Curso (
     numcurso INT NOT NULL PRIMARY KEY,
     codigo INT NOT NULL,
