@@ -111,3 +111,125 @@ WHERE p.Importe > 25000;
 
 --Listar los pedidos superiores a 25000 mostrando el numero de pedido, el nombre del cliente que lo encargo 
 --y el nombre del representante asignado al cliente, y el importe
+SELECT p.Num_Pedido AS [Numero de pedido],
+		c.Empresa AS [Cliente],
+		r.Nombre AS [Representante cliente],
+		p.Importe
+FROM Representantes AS r
+INNER JOIN Clientes AS c
+ON r.Num_Empl = c.Rep_Cli
+INNER JOIN Pedidos AS p
+ON c.Num_Cli = p.Cliente
+WHERE Importe > 25000;
+
+use bdg1join;
+SELECT * FROM Categoria;
+
+SELECT * FROM Producto;
+
+--iNNER JOIN 
+
+Select * 
+from Categoria as c
+JOIN  Producto as p
+on c.cargoriaid = p.categoria;
+
+--LEFT JOIN o LEFT OUTER JOIN
+
+--La primera table que aparece en el from es la tabla izquierda
+
+Select * 
+from Categoria as c
+JOIN  Producto as p
+on c.cargoriaid = p.categoria;
+
+--Mostras todas las categorias que no tengan productos asignados
+
+Select c.cargoriaid, c.nombre 
+from Categoria as c
+LEFT JOIN Producto as p
+on c.cargoriaid = p.categoria
+WHERE p.categoria is null;
+
+--Right JOIN - RIGTH OUTER JOIN = TODOS LOS DATOS DE LA TABLA DERECHA Y LOS QUE COINICIDEN
+--CON LA TABLA IZQUIERDA, Y LOS QUE NO COINCIDEN LOS PONE EN NULL
+
+--selecciona todos aquellos productos que no tienen categoria asignada 
+Select p.nombre as [Nombre del producto],
+		p.precio as [precio]
+from Categoria as c
+RIGHT JOIN  Producto as p
+on c.cargoriaid = p.categoria
+WHERE categoria is null;
+
+--FULL JOIN = OBTIENE  LOS DATOS DE LA TABLA IZQUIERDA, LOS DATOS DE LA TABLA 
+--DERECHA Y TODAS LAS COINCIDENCIAS ENTRE LAS 2
+
+Select * 
+from Categoria as c
+FULL JOIN  Producto as p
+on c.cargoriaid = p.categoria;
+
+Select * 
+from Categoria as c
+CROSS JOIN  Producto as p;
+
+SELECT * 
+FROM Categoria AS c,
+Producto as p
+where c.cargoriaid = p.categoria;
+
+/*AGREGACION
+
+count (*) - cuenta las filas ,
+count (campo) - cuenta las filas pero no los null,
+min() - obtiene el valor minimo de un campo,
+max() - obtiene el valor maximo de un campo ,
+avg() - obtiene la media aridmetica o promedio,
+sum() - obtiene el total o la sumatioria 
+*/
+
+use NORTHWND;
+
+--cuentos clientes hay
+
+select COUNT(*) as [numero de clientes]
+from Customers;
+
+--cuantas ventas han realizado
+select COUNT (*)
+from Orders;
+
+--cuantas ventas se realizaron en 1996
+
+select COUNT(*)
+from Orders
+where DATEPART(YEAR, OrderDate )=1996
+
+--seleccionar la venta de la fecha mas antigua que se hizo 
+
+select MIN(orderDate) as [Fecha primera venta]
+from Orders
+
+--seleccionar el total que se ha vendido
+select sum (UnitPrice * Quantity) as [Total de ventas]
+from [Order Details]
+
+--seleccionar el total de ventas entre 1996 y 1997
+select sum (UnitPrice * Quantity) as [Total de ventas]
+from [Order Details] as od
+inner join Orders as o
+on o.OrderID = od.OrderID
+where DATEPART(YEAR, o.OrderDate) between 1996 and 1997
+and o.CustomerID = 'AROUT';
+
+--seleccionar las ventas totales hechas a cada uno de nuestros clientes
+select c.CompanyName as [cliente],
+sum (UnitPrice * Quantity) as [Total de ventas]
+from [Order Details] as od
+inner join Orders as o
+on o.OrderID = od.OrderID
+inner join Customers as c
+on c.CustomerID = o.CustomerID
+where DATEPART(YEAR, o.OrderDate) between 1996 and 1997
+group by c.CompanyName;
